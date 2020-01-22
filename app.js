@@ -1,3 +1,5 @@
+// Dossier que l'on met sur Github
+
 // INDICATIONS :
 // si pas fait : installer node js version 12 (cf word)
 // si pas fait télécharger npm version 6.13 (cf word)
