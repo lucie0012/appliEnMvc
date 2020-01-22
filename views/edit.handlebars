@@ -1,0 +1,65 @@
+<section class="section">
+    <div class="container is-fullhd">
+        <form action="/articles/post" method="POST" enctype="multipart/form-data">
+            {{!-- on envoi les données saisi dans l'url indiqué : ici : "/articles/post" --}}
+            {{!-- ATTENTION : il faut bien ajouter cette URL dans app.js dans le code démarrant par "app.post" pour qu'il connaisse le lieu ou récupérer les données // puis indiquer la méthode utilisée "POST" (car app.post) --}}
+            {{!-- "enctype="multipart/form-data" : permet de prendre en compte le fichier jpeg --}}
+            <div class="field">
+                <label class="label">Titre de l'article</label>
+                <div class="control">
+                    <textarea class="input" type="text" name="title">{{articleBdd.title}}</textarea>
+                    {{!-- <input class="input" type="text" name="title"> --}}
+                    {{!-- "name" est le nom des datas récupérées, "title" sera donc utilisé (dans app.js) pour faire référence à ce que l'on veut récupérer--}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Contenu</label>
+                <div class="control">
+                    <textarea class="textarea" name="content">{{articleBdd.content}}</textarea>
+                    {{!-- "name" est le nom des datas récupérées, "content" sera donc utilisé (dans app.js) pour faire référence à ce que l'on veut récupérer--}}
+                    <script>
+                        CKEDITOR.replace('content');
+                    </script>
+                    {{!-- code de l'éditeur "ckeditor" à coller ici pour le faire fonctionner (attention il faut remplacer "editor1" par le name de l'input ou du textarea) --}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Auteur</label>
+                <div class="control">
+                    <textarea class="input" type="text" name="author">{{articleBdd.author}}</textarea>
+                    {{!-- <input class="input" type="text" name="author"> --}}
+                    {{!-- "name" est le nom des datas récupérées, "author" sera donc utilisé (dans app.js) pour faire référence à ce que l'on veut récupérer--}}
+                </div>
+            </div>
+
+            <div class="file">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="image">
+                    {{!-- "name" est le nom des datas récupérées, "image" sera donc utilisé (dans app.js) pour faire référence à ce que l'on veut récupérer--}}
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Envoyer une image format jpg
+                        </span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link">Enregistrer</button>
+                </div>
+                <div class="control">
+                    <button class="button is-text">Annuler</button>
+                </div>
+
+        </form>
+    </div>
+
+</section>
+
+{{!-- bien penser à créer la route afin de faire afficher le contenu de cette page --}}

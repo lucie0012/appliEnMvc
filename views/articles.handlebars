@@ -1,0 +1,13 @@
+<section class="section">
+    <div class="container bg-black">
+        <h1 class="title">{{article.title}}</h1>
+        {{!-- "article.title" : article correspond à la variable dans lequel on récupère les données et title qui correspond au titre qu'on récupère (selon le model créé)--}}
+        <p>{{stripTags article.content}}</p>
+        {{!-- on rappel la variable "stripTags" pour l'exécuter sur le "content" de l'article --}}
+        <a href="/edit/{{article._id}}">
+        {{!-- je créé mon url par edit puis id de mon article --}}
+        <button class="button is-dark">Modifier</button>
+        </a>
+
+    </div>
+</section>

@@ -1,0 +1,32 @@
+{{!-- main.handlebars c'est le squelette de notre site --}}
+
+{{!-- on a copié coller la barre de nav et le footer --}}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <title>I-maginer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Service numérique dédiée à l’innovation, à la formation et au développement de la culture numérique.">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" >
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+  {{!-- url pour utiliser l'éditeur ckeditor --}}
+</head>
+
+<body>
+
+{{> navbar}}
+{{!-- appel du partials "navbar" / ">" permet de rentrer dans le dossier "partials" et "navbar" est le nom du fichier  --}}
+
+{{{body}}}
+{{!-- permet d'afficher le code de la page demandé par "res.render("...");", par exemple si c'est "index" on utilise le code de "index.handlebars", si c'est "contact" alors celui de "contact.handlebars" --}}
+
+{{> footer}}
+
+</body>
