@@ -110,7 +110,12 @@ const userLoginAuth = require("./controllers/userLoginAuth");
 const app = express();
 // on "l'initialise" et on l'utilisera via "app"
 
-mongoose.connect('mongodb://localhost:27017/blog', {useUnifiedTopology: true, useNewUrlParser: true});
+// const urlDb = 'mongodb://localhost:27017/blog';
+// url local avec mongodb et robo3t
+const urlDb = 'mongodb+srv://lucie:eodeezae250812@cluster0-xyvlf.mongodb.net/test?retryWrites=true&w=majority';
+// url cloud mongodb avec mongoDb.Atlas (cf doc github)
+
+mongoose.connect(urlDb, {useUnifiedTopology: true, useNewUrlParser: true});
 // on se connecte à la BDD / on indique le num du port (localhost) et le nom de la bdd (ici "blog") (elle se crééra automatiquement)
 // attention bien penser à lancer la BDD via un autre terminal de commande via "mongod"
 
