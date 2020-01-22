@@ -81,6 +81,10 @@ const MongoStore = require('connect-mongo');
 const connectFlash = require('connect-flash');
 // on récupère notre paquet "connect-flash"
 
+const port = process.env.PORT || 3000;
+// création de la constante "port" qu'on utilise plus bas dans notre "app.listen"
+//  "process.env.PORT" concerne heroku pour qu'il fonctionne
+
 const {stripTags} = require('./helpers/hbs');
 // on récupère notre module dans le fichier "hbs.js" / {} car dans "hbs.js" il est entre accolade
 
@@ -288,8 +292,8 @@ app.use( (req, res) => {
 })
 
 
-app.listen(3000, function () {
-    console.log("Le serveur tourne sur le port 3000");
+app.listen(port, function () {
+    console.log("Le serveur tourne sur le port " + port);
 
 })
 
