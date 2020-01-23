@@ -116,12 +116,18 @@ const app = express();
 
 // const urlDb = 'mongodb://localhost:27017/blog';
 // url local avec mongodb et robo3t
-const urlDb = 'mongodb+srv://lucie:eodeezae250812@cluster0-xyvlf.mongodb.net/test?retryWrites=true&w=majority';
+const urlDb = require('./config/keys').MongoURI
+// afin de sécuriser et de ne pas afficher l'id et le mdp dans notre code / on met ".MongoURI" afin de chercher "MongoURI" dans le fichier keys.js
 // url cloud mongodb avec mongoDb.Atlas (cf doc github)
 
-mongoose.connect(urlDb, {useUnifiedTopology: true, useNewUrlParser: true});
-// on se connecte à la BDD / on indique le num du port (localhost) et le nom de la bdd (ici "blog") (elle se crééra automatiquement)
-// attention bien penser à lancer la BDD via un autre terminal de commande via "mongod"
+mongoose
+    .connect(urlDb, {useUnifiedTopology: true, useNewUrlParser: true})
+    // on se connecte à la BDD / on indique le num du port (localhost) et le nom de la bdd (ici "blog") (elle se crééra automatiquement)
+    // attention bien penser à lancer la BDD via un autre terminal de commande via "mongod"
+    .then(() => console.log('Connecté à MongoDB Cloud'))
+    // puis tu m'affiches 
+    .catch(err => console.log(err))
+    // sinon
 
 const mongoStore = MongoStore(expressSession);
 // on connecte le modèle mongostore avec express-session afin qu'il créé une session dans la BDD (on créé une variable "mongoStore" qui utilise celle "MongoStore" que l'on connecte)
